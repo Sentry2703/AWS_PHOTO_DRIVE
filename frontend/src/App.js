@@ -1,24 +1,39 @@
-import logo from './logo.svg';
+import * as React from 'react';
 import './App.css';
 
-function App() {
+const App = () => {
+
+  const [tempData, setTempData] = React.useState(null);
+  
+  async function getData() {
+    try {
+      const response = await fetch("/accounts");
+      const data = await response.json();
+      setTempData(data)
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  React.useEffect(() => {
+    getData();
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {tempData && Array.isArray(tempData) ?  (
+        tempData.map((item, index) => (
+          <div key={index}>
+            <p>{item.id}</p>
+            <p>{item.username}</p>
+            <p>{item.role}</p>
+          </div>
+          ))
+      ) : (
+        <p>Loading...</p>
+      )}
+    </>
   );
 }
 
