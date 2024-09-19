@@ -1,0 +1,14 @@
+body {
+    background-color: #e6e1e1;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+h1, h2, p {
+    color: #333;
+    margin: 20px;
+}
+
+.container {
+    padding: 20px;
+}
