@@ -4,15 +4,27 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-import { green } from '@mui/material/colors';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 const theme = createTheme({
   palette: {
     primary: {
-      main: green[300],
+      main: "#6EEB83",
     },
+    secondary: {
+      main: "#3A3042",
+    },
+    error: {
+      main: "#F72C25"
+    },
+    info: {
+      main: "#B370B0"
+    },
+    success: {
+      main: "#F8E5EE"
+    },
+    //Palette inspired from https://coolors.co/6eeb83-3a3042-f72c25-b370b0-f8e5ee
   },
   direction: 'ltr'
 })

@@ -9,7 +9,7 @@ import { Search, SearchIconWrapper, StyledInputBase } from '../search/Search';
 
 const Header = () => {
 
-    const settings = ["Profile, Account, Dashboard, Logout"]
+    //const settings = ["Profile, Account, Dashboard, Logout"];
     const [searchVal, setSearchVal] = React.useState("");
 
     const handleSearchChange = (event) => {
@@ -17,7 +17,7 @@ const Header = () => {
     };
 
     return (
-        <AppBar>
+        <AppBar sx = {{ zIndex: (theme) => theme.zIndex.drawer + 1}}>
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
                     {/*Logo that I'm working with*/}
